@@ -19,7 +19,7 @@ function ChatAppComponent(props) {
                     setChatVisibility={setChatVisibility}
                 />
             </div>
-            {(chat_visibility == true) ? (
+            {(chat_visibility == true)?(
                 <div className="div_chat">
                     <NavbarChatComponent  recieverName={message_to}/>
                     <div className="div_messages">

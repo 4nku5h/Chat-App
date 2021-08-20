@@ -1,4 +1,5 @@
 {
+  "homepage": "http://4nku5h.github.io/Chat-App",
   "name": "chat-app",
   "version": "0.1.0",
   "private": true,
@@ -8,6 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "bootstrap": "^5.1.0",
     "firebase": "^8.9.1",
+    "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-beta.5",
     "react-dom": "^17.0.2",
