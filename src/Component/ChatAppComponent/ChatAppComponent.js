@@ -6,6 +6,7 @@ import UserMessagesComponent from '../UserMessageComponent/UserMessageComponent.
 import NavbarComponent from '../Navbar_User/NavbarComponent';
 import NavbarChatComponent from '../Navbar_Chat/NavbarChatComponent';
 
+
 function ChatAppComponent(props) {
     let message_from = props.userName;
     const [message_to, set_message_to] = React.useState(null);

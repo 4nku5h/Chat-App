@@ -4,12 +4,13 @@ import { GetAllUsers } from '../../Firebase/Firebase_ref';
 
 let url = 'https://www.pinclipart.com/picdir/big/164-1640717_free-user-icon-flat-189024-download-user-icon.png';
 let previous_selected = null;
+let x = [];
 function getData() {
-    let x = [];
+    let temp = [];
     GetAllUsers().on('child_added', function (snapshot) {
-        x.push(snapshot.val())
+        temp.push(snapshot.val())
     });
-    return x;
+    return temp;
 }
 
 function handleUserClick(e) {
@@ -20,7 +21,11 @@ function handleUserClick(e) {
 function UsersListComponent(props) {
     const [users, setUsers] = React.useState([])
     setInterval(() => {
-        setUsers(getData())
+        let data=getData()
+        if(data!=x){
+            setUsers(data)
+            x=data;
+        }
     }, 900)
 
     let text = "sample_message"

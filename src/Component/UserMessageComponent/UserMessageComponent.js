@@ -3,20 +3,28 @@ import React, { useState } from 'react'
 import { GetAllMessages } from '../../Firebase/Firebase_ref';
 
 let url = 'https://rameshhospitals.com/wp-content/uploads/2019/07/3.jpg.png';
+let ref=GetAllMessages();
+let x = [];
 function getData() {
-    let x = [];
-    GetAllMessages().on('child_added', function (snapshot) {
-        x.push(snapshot.val())
+    let temp=[];
+    ref.on('child_added', function (snapshot) {
+        temp.push(snapshot.val())
     });
-    return x;
+    return temp;
 }
 // message_to= friend
 //message_from= my name
 function UserMessageComponent(props) {
     const [messages, setMessages] = React.useState([])
-    setInterval(() => {
-        setMessages(getData())
+    setInterval(() => {       
+        let data=getData()
+        if(data!=x){
+            setMessages(data)
+            x=data;
+        }
     }, 50)
+
+
     return (
         <div className="UserMessages">
             {(messages).map((message) => {
